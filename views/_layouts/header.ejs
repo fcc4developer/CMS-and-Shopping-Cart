@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.3/dist/jquery.fancybox.min.css" />
+  <link href="https://unpkg.com/ionicons@4.2.2/dist/css/ionicons.min.css" rel="stylesheet">
+
+  <script src="//code.jquery.com/jquery-3.3.1.min.js"></script>
+
+  <title>
+    <%= title %>
+  </title>
+
+  <link href="https://fonts.googleapis.com/css?family=Raleway:400,700" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro" rel="stylesheet">
+
+  <link rel="stylesheet" href="/stylesheets/ionicons.min.css">
+
+  <!-- Bootstrap core CSS -->
+  <link href="/stylesheets/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Custom styles for this template -->
+  <link href="/stylesheets/style.css" rel="stylesheet">
+
+  <!-- Queries for this template -->
+  <link href="/stylesheets/queries.css" rel="stylesheet">
+</head>
+
+<body>
+  <div class="ajaxbg">
+    <div class="ajaxinner">
+      <h3>You are now being redirected to paypal...</h3>
+      <img src="/images/ajax-loader.gif" alt="">
+    </div>
+  </div>
+  <div class="container">
+    <nav class="navbar navbar-expand-md navbar-dark fixed-top">
+      <a class="navbar-brand" href="/"><img src="../../images/soon-2.jpg" alt=""></a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault"
+        aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+              aria-haspopup="true" aria-expanded="false">
+              Categories
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <a class="dropdown-item" href="/products">All products</a>
+              <div class="dropdown-divider"></div>
+              <% categories.forEach(function(c) { %>
+              <a class="dropdown-item" href="/products/<%= c.slug %>">
+                <%= c.title %></a>
+              <% }); %>
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item" href="#">Sales -40%</a>
+            </div>
+          </li>
+          <% pages.forEach(function(page) { %>
+          <% if(page.slug == 'home') { %>
+          <li class="nav-item">
+            <a class="nav-link" href="/">
+              <%= page.title %></a>
+          </li>
+          <% } else if(page.slug == 'sales') { %>
+          <li class="nav-item">
+            <a class="nav-link sales" href="<%= page.slug %>">
+              <%= page.title %></a>
+          </li>
+          <% } else { %>
+          <li class="nav-item">
+            <a class="nav-link" href="<%= page.slug %>">
+              <%= page.title %></a>
+          </li>
+          <% } %>
+
+          <% }); %>
+        </ul>
+        <ul class="navbar-nav ml-auto">
+          <li>
+            <a href="/cart/checkout" class="checkout"><i class="icon ion-md-cart"></i>(
+              <% if(typeof cart != "undefined") { %>
+              <%= cart.length %>
+              <% } else { %>
+              0
+              <% } %>
+              )</a>
+          </li>
+        </ul>
+        <form class="form-inline">
+          <input class="form-control mr-sm-2 search-input" type="search" placeholder="Search store" aria-label="Search">
+          <svg class="svg-icon search-icon" viewBox="0 0 20 20">
+            <path d="M18.125,15.804l-4.038-4.037c0.675-1.079,1.012-2.308,1.01-3.534C15.089,4.62,12.199,1.75,8.584,1.75C4.815,1.75,1.982,4.726,2,8.286c0.021,3.577,2.908,6.549,6.578,6.549c1.241,0,2.417-0.347,3.44-0.985l4.032,4.026c0.167,0.166,0.43,0.166,0.596,0l1.479-1.478C18.292,16.234,18.292,15.968,18.125,15.804 M8.578,13.99c-3.198,0-5.716-2.593-5.733-5.71c-0.017-3.084,2.438-5.686,5.74-5.686c3.197,0,5.625,2.493,5.64,5.624C14.242,11.548,11.621,13.99,8.578,13.99 M16.349,16.981l-3.637-3.635c0.131-0.11,0.721-0.695,0.876-0.884l3.642,3.639L16.349,16.981z"></path>
+          </svg>
+        </form>
+      </div>
+      <!-- /.nav-collapse -->
+    </nav>
+  </div>
+
+  <div class="container">
+    <%- messages('messages', locals) %>
+
+  </div>
+
+  <div class="col-xs-12 col-md-1"></div>
+  <div class="col-xs-12">

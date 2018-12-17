@@ -1,0 +1,21 @@
+<% include _layouts/header %>
+
+<div class="row top-row products p">
+  <% products.forEach(function(p) { %>
+
+  <div class="col-xs-12 product">
+    <div class="product-pimage"><a href="/products/<%= p.category %>/<%= p.slug %>" class="pa"><img class="pimage" src="/product-images/<%= p.id %>/<%= p.image %>"
+          alt=""></a></div>
+    <h6>
+      <%= p.title %>
+    </h6>
+    <p>Price: $
+      <%= parseFloat(p.price).toFixed(2) %>
+    </p>
+    <a href="/products/<%= p.category %>/<%= p.slug%>" class="vd">View Details &raquo;</a>
+  </div>
+  <% }); %>
+
+</div>
+
+<% include _layouts/footer %>

@@ -1,0 +1,249 @@
+<% include _layouts/header %>
+
+<!-- <div class="container"> -->
+<div class="carousel slide multi-item-carousel" id="carouselExampleControls" data-ride="carousel">
+  <div class="carousel-inner">
+    <div class="carousel-item item active" style="background-image: url('../../images/tamara-bellis-156248-unsplash.jpg')"></div>
+    <div class="carousel-item item " style="background-image: url('../../images/andie-gomez-acebo-744590-unsplash.jpg')"></div>
+    <div class="carousel-item item " style="background-image: url('../../images/wood-leather-watches_925x.jpg')"></div>
+  </div>
+  <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+    <span aria-hidden="true"></span>
+    <span class="sr-only">Previous</span>
+  </a>
+  <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+    <span aria-hidden="true"></span>
+    <span class="sr-only">Next</span>
+  </a>
+</div>
+
+<div class="container">
+  <div class="row top-row about-txt">
+    <div class="col-md-3">
+      <svg width="50%" height="50%" viewBox="-15 -15 100 100" xmlns="http://www.w3.org/2000/svg" fill="#ddd">
+        <image href="../images/floral.svg" x="0" y="0" height="90" width="85" />
+      </svg>
+      <h4>&check; Elegance</h4>
+      <p class="about">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Tenetur distinctio necessitatibus
+        pariatur
+        voluptatibus.</p>
+    </div>
+    <div class="col-md-3">
+      <svg width="50%" height="50%" viewBox="-20 -25 100 100" xmlns="http://www.w3.org/2000/svg">
+        <image href="../images/diamond.svg" x="0" y="0" height="60" width="60" />
+      </svg>
+      <h4>&check; Luxury</h4>
+      <p class="about">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Tenetur distinctio
+        necessitatibus pariatur voluptatibus.</p>
+    </div>
+    <div class="col-md-3">
+      <svg width="50%" height="50%" viewBox="-20 -25 100 100" xmlns="http://www.w3.org/2000/svg">
+        <image href="../images/target.svg" x="0" y="0" height="60" width="60" />
+      </svg>
+      <h4>&check; Accuracy</h4>
+      <p class="about">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Tenetur distinctio necessitatibus
+        pariatur
+        voluptatibus.</p>
+    </div>
+    <div class="col-md-3">
+      <svg width="50%" height="50%" viewBox="-20 -25 100 100" xmlns="http://www.w3.org/2000/svg">
+        <image href="../images/air-freight.svg" x="0" y="0" height="60" width="60" />
+      </svg>
+      <h4>&check; Delivery worldwide</h4>
+      <p class="about">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Tenetur distinctio necessitatibus
+        pariatur
+        voluptatibus.</p>
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <% categories.forEach(function(c) { %>
+  <a class="col-lg-4 col-sm-6 about" href="/products/<%= c.slug %>">
+    <%= c.title %>
+  </a>
+  <% }); %>
+</div>
+
+<div class="row">
+  <div class="col-lg-4 col-sm-6 categories">
+    <div class="thumbnail">
+      <a href="/products/watches"><img src="/images/pexels-photo-125779.jpeg"></a>
+    </div>
+  </div>
+  <div class="col-lg-4 col-sm-6 categories">
+    <div class="thumbnail">
+      <a href="/products/jewellery"><img src="/images/jewellery-cat.jpeg"></a>
+    </div>
+  </div>
+  <div class="col-lg-4 col-sm-6 categories">
+    <div class="thumbnail">
+      <a href="/products/glasses"><img src="/images/pexels-photo-46710.jpeg"></a>
+    </div>
+  </div>
+</div>
+
+<div class="top">
+  <div>
+    <a class="top-link">Top Sales -40% &NestedGreaterGreater;<a>
+  </div>
+  <div class="row top-row">
+    <div class="col-xs-12">
+      <div class="product-pimage">
+        <a href="#" class="pa vd-top"><img src="/images/casio.jpg" class="top-rated"></a>
+      </div>
+      <div class="vd-top">
+        <h6>Casio Men's 'Pro Trek'</h6>
+        <p>Price: $500.00</p>
+        <a href="#" class="vd">View Details</a>
+      </div>
+    </div>
+    <div class="col-xs-12">
+      <div class="product-pimage">
+        <a href="#" class="pa vd-top"><img src="/images/garmin.jpg" class="top-rated"></a>
+      </div>
+      <div class="vd-top">
+        <h6>Garmin vívoactive 3</h6>
+        <p>Price: $229.00</p>
+        <a href="#" class="vd">View Details</a>
+      </div>
+    </div>
+    <div class="col-xs-12">
+      <div class="product-pimage">
+        <a href="#" class="pa vd-top"><img src="/images/41reTzKngNL.jpg" class="top-rated"></a>
+      </div>
+      <div class="vd-top">
+        <h6>IBSO Creative Men</h6>
+        <p>Price: $49.09</p>
+        <a href="#" class="vd">View Details</a>
+      </div>
+    </div>
+    <div class="col-xs-12">
+      <div class="product-pimage">
+        <a href="#" class="pa vd-top"><img src="/images/fossil-men2.jpg" class="top-rated"></a>
+      </div>
+      <div class="vd-top">
+        <h6>Fossil Q Marshal Gen 2</h6>
+        <p>Price: $399.00</p>
+        <a href="#" class="vd">View Details</a>
+      </div>
+    </div>
+    <div class="col-xs-12">
+      <div class="product-pimage top-pimage">
+        <a href="#" class="pa vd-top"><img src="/images/fossil-women.jpg" class="top-rated"></a>
+      </div>
+      <div class="vd-top">
+        <h6>Fossil Gen 3 Venture</h6>
+        <p>Price: $175</p>
+        <a href="#" class="vd">View Details</a>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<div class="container">
+  <div class="row top-row">
+    <div class="col-xs-3 story">
+      <div>
+        <img src="../images/Anonymous.jpg" class="img-story" alt="">
+        <h5 class="story-heading">&OpenCurlyDoubleQuote;Now I trust the timing of my life</h5>
+        <p class="story-text">
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam, ipsum sapiente
+          aspernatur libero repellat
+          quis consequatur
+          ducimus quam nisi exercitationem omnis earum qui. &CloseCurlyDoubleQuote;
+        </p>
+      </div>
+    </div>
+    <div class="col-xs-3 story">
+      <div>
+        <img src="../images/avatar-woman.jpg" class="img-story" alt="">
+        <h5 class="story-heading">&OpenCurlyDoubleQuote;Fast is fine, but accuracy is everything</h5>
+        <p class="story-text">
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam, ipsum sapiente
+          aspernatur libero repellat
+          quis consequatur.&CloseCurlyDoubleQuote;
+        </p>
+      </div>
+    </div>
+    <div class="col-xs-3 story">
+      <div>
+        <img src="../images/avatar-men.jpg" class="img-story" alt="">
+        <h5 class="story-heading">&OpenCurlyDoubleQuote;Very elegant and sophisticated
+          watches&CloseCurlyDoubleQuote;</h5>
+        <p class="story-text">
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam, ipsum sapiente
+          aspernatur libero repellat
+          quis consequatur
+          ducimus quam nisi exercitationem omnis earum qui. Aperiam, ipsum sapiente
+          aspernatur.&CloseCurlyDoubleQuote;
+        </p>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+
+<div class="top">
+  <div>
+    <a class="top-link">Top Rated &NestedGreaterGreater;<a>
+  </div>
+  <div class="row top-row">
+    <div class="col-xs-12">
+      <div class="product-pimage top-pimage">
+        <a href="#" class="pa vd-top"><img src="/images/casio.jpg" class="top-rated"></a>
+      </div>
+      <div class="vd-top">
+        <h6>Casio Men's 'Pro Trek'</h6>
+        <p>Price: $500.00</p>
+        <a href="#" class="vd">View Details</a>
+      </div>
+    </div>
+    <div class="col-xs-12">
+      <div class="product-pimage top-pimage">
+        <a href="#" class="pa vd-top"><img src="/images/garmin.jpg" class="top-rated"></a>
+      </div>
+      <div class="vd-top">
+        <h6>Garmin vívoactive 3</h6>
+        <p>Price: $229.00</p>
+        <a href="#" class="vd">View Details</a>
+      </div>
+    </div>
+    <div class="col-xs-12">
+      <div class="product-pimage top-pimage">
+        <a href="#" class="pa vd-top"><img src="/images/41reTzKngNL.jpg" class="top-rated"></a>
+      </div>
+      <div class="vd-top">
+        <h6>IBSO Creative Men</h6>
+        <p>Price: $49.09</p>
+        <a href="#" class="vd">View Details</a>
+      </div>
+    </div>
+    <div class="col-xs-12">
+      <div class="product-pimage top-pimage">
+        <a href="#" class="pa vd-top"><img src="/images/fossil-men2.jpg" class="top-rated"></a>
+      </div>
+      <div class="vd-top">
+        <h6>Fossil Q Marshal Gen 2</h6>
+        <p>Price: $399.00</p>
+        <a href="#" class="vd">View Details</a>
+      </div>
+    </div>
+    <div class="col-xs-12 ">
+      <div class="product-pimage top-pimage">
+        <a href="#" class="pa vd-top"><img src="/images/fossil-women.jpg" class="top-rated"></a>
+      </div>
+      <div class="vd-top">
+        <h6>Fossil Gen 3 Venture</h6>
+        <p>Price: $175</p>
+        <a href="#" class="vd">View Details</a>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
+<% include _layouts/footer %>
