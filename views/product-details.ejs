@@ -16,7 +16,11 @@
     <p class="price">Price: $
       <%= parseFloat(p.price).toFixed(2) %>
     </p>
+    <% if(loggedIn) { %>
     <p><a href="/cart/add/<%= p.slug %>" class="vd">Add to cart &raquo;</a></p>
+    <% } else { %>
+    <p>You must be logged in to purchase items.</p>
+    <% }; %>
   </div>
   <div class="col-xs-12">
     <ul class="gallery">

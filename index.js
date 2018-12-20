@@ -7,11 +7,13 @@ var expressValidator = require('express-validator');
 var session = require('express-session');
 var flash = require('connect-flash');
 var fileUpload = require('express-fileupload');
+var passport = require('passport');
 
 // set routes
 var pages = require('./routes/pages');
 var products = require('./routes/products');
 var cart = require('./routes/cart');
+var users = require('./routes/users');
 var adminPages = require('./routes/admin-pages');
 var adminCategories = require('./routes/admin-categories');
 var adminProducts = require('./routes/admin-products');
@@ -122,9 +124,17 @@ app.use(function (req, res, next) {
   next();
 });
 
+// passport config
+require('./config/passport')(passport);
+
+// passport middleware
+app.use(passport.initialize());
+app.use(passport.session());
+
 // set cart locals
 app.get('*', function (req, res, next) {
   res.locals.cart = req.session.cart;
+  res.locals.user = req.user || null;
   next();
 });
 
@@ -132,6 +142,7 @@ app.get('*', function (req, res, next) {
 app.use('/admin/products', adminProducts);
 app.use('/admin/categories', adminCategories);
 app.use('/admin/pages', adminPages);
+app.use('/users', users);
 app.use('/cart', cart);
 app.use('/products', products);
 app.use('/', pages);

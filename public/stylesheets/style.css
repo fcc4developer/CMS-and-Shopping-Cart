@@ -23,8 +23,8 @@ body {
 
 .top-row {
   max-width: 1140px;
-  padding: 20px;
   margin: 10px auto;
+  padding-left: 20px;
 }
 
 .container {
@@ -41,7 +41,8 @@ h1.page-header {
   border-radius: 3px;
   text-align: center;
   padding: 10px;
-  font-size: 20px;
+  font-size: 16px;
+  margin-top: 10px;
 }
 
 h4 {
@@ -68,17 +69,18 @@ a.about:hover {
 }
 
 .about {
-  /* margin-bottom: 15px; */
   font-size: 110%;
+  padding-top: 80px;
+  margin-top: 80px;
 }
 
-
 .about-txt {
-  margin-bottom: 120px;
+  margin-bottom: 60px;
+  padding-bottom: 60px;
 }
 
 .categories {
-  padding: 40px;
+  padding: 80px;
   margin-bottom: 80px;
 }
 
@@ -89,15 +91,16 @@ img.pimage {
 .vd-top {
   float: right;
   margin-bottom: 10px;
+  margin-right: 50px;
 }
 
 img.top-rated {
-  width: 140px;
+  width: 150px;
 }
 
 .top {
-  margin: 20px auto;
-  padding: 20px;
+  /* margin: 10px auto; */
+  padding: 100px;
   background-color: #f0eeee;
 }
 
@@ -124,7 +127,7 @@ a.pa {
 
 img.spi {
   width: 60%;
-  padding: 20px;
+  padding: 10px;
 }
 
 p.spi-desc {
@@ -144,9 +147,14 @@ p.spi-desc {
 
 ul.gallery li {
   display: inline-block;
-  margin: 20px;
+  margin-bottom: 20px;
   list-style: none;
 }
+
+.carousel {
+  padding: 30px;
+}
+
 .carousel-item {
   min-height: 480px;
   background: no-repeat center;
@@ -157,14 +165,14 @@ nav {
 }
 
 .nav-item{
-  margin-left: 20px;
-  font-size: 90%;
+  margin-left: 10px;
+  font-size: 80%;
   text-transform: uppercase;
   letter-spacing: .5px;
 }
 
 .nav-link {
-  padding: 2px;
+  padding: 1px;
   transition: all 0.2s;
 }
 
@@ -195,10 +203,15 @@ a.dropdown-toggle:hover {
   transform: scale(1.2) skewY(-6deg);
 }
 
+.nav-item.register,
+.nav-link.register {
+  padding-top: 7px;
+}
+
 a.checkout {
   text-decoration: none;
   color: #55c57a;
-  margin-right: 20px;
+  /* margin-right: 10px; */
 }
 
 .checkout i.icon {
@@ -208,7 +221,7 @@ a.checkout {
 }
 
 .dropdown {
-  margin-right: 80px;
+  margin-right: 40px;
 }
 
 .dropdown-divider {
@@ -230,6 +243,43 @@ a.checkout {
 .dropdown-item {
   padding: 10px 10px 7px 6px;
   letter-spacing: .5px;
+}
+
+input.form-control.search-input {
+  width: 60%;
+  padding-right: 20px;
+  margin-left: 20px;
+}
+
+.search {
+  background-color: #f4f2f2;
+  }
+.search-input {
+  border: none;
+  background-color: #f4f2f2;
+  padding: 0px 25px;
+  border-radius: 100px;
+}
+
+.search-input:focus {
+  box-shadow: none;
+  border: 2px solid#55c57a;
+  background-color: #f0eeee;
+ }
+
+.search-input::-webkit-input-placeholder {
+  color: #ccc; 
+  font-size: 14px;
+}
+
+.search-input:focus {
+  background-color: #f0eeee; 
+}
+
+.search-icon {
+  height: 20px;
+  width: 20px;
+  fill: #55c57a; 
 }
 
 div.product {
@@ -279,40 +329,6 @@ div.product p {
   transform: translateY(0); 
 }
 
-.search {
-  background-color: #f4f2f2;
-  }
-.search-input {
-  border: none;
-  background-color: #f4f2f2;
-  padding: 12px 32px;
-  border-radius: 100px;
-  width: 90%;
-  margin-right: -52px;
-}
-
-.search-input:focus {
-  box-shadow: none;
-  border: 2px solid#55c57a;
-  background-color: #f0eeee;
- }
-
-.search-input::-webkit-input-placeholder {
-  font-weight: 100;
-  color: #ccc; 
-}
-
-.search-input:focus {
-  background-color: #f0eeee; 
-}
-
-.search-icon {
-  height: 20px;
-  width: 20px;
-  fill: #55c57a; 
-  margin-right: 30px;
-}
-
 img {
   width: 100%;
   margin: 10px 0px;
@@ -328,11 +344,11 @@ img.img-story {
 
 .story {
   width: 30%;
-  margin: 0 auto;
+  margin: 20px auto;
   box-shadow: 0 3rem 6rem rgba(0, 0, 0, 0.1);
   background-color: rgba(255, 255, 255, 0.6);
   border-radius: 3px;
-  padding: 30px;
+  padding: 50px;
   text-align: center; 
 }
 
@@ -406,7 +422,7 @@ a i.icon:hover {
 
 footer {
   background-color: #333;
-  padding: 30px;
+  padding: 80px;
   font-size: 90%;
 }
 
@@ -451,3 +467,145 @@ footer p {
   margin-top: 30px;
 }
 
+/* Registration Form */
+
+/* :root {
+  --input-padding-x: 1.5rem;
+  --input-padding-y: .75rem;
+} */
+
+.card-signin {
+  border: 1px solid transparent;
+  border-radius: 1rem;
+  box-shadow: 1rem 1rem 5rem 5px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+
+.card-signin .card-title {
+  margin-bottom: 2rem;
+  font-weight: 300;
+  font-size: 1.5rem;
+}
+
+.card-signin .card-img-left {
+  width: 45%;
+  /* Link to your background image using in the property below! */
+  background: scroll center url('/images/clock-hours-minutes-9352.jpg');
+  background-size: cover;
+  background-color: #55c57a;
+  background-blend-mode: color-dodge
+}
+
+.card-signin .card-body {
+  padding: 3rem 4rem 4rem 4rem;
+}
+
+.form-signin {
+  width: 100%;
+}
+
+.form-signin .btn {
+  background-color: #55c57a;
+  font-size: 80%;
+  border: 1px solid transparent;
+  border-radius: 5rem;
+  letter-spacing: .1rem;
+  font-weight: bold;
+  padding: 0.5rem;
+  transition: all 0.2s;
+}
+
+a.small {
+  color: #55c57a;
+}
+
+.form-label-group {
+  /* position: relative; */
+  margin-bottom: 1rem;
+}
+
+.form-label-group input {
+  border-radius: 2rem;
+}
+
+.form-label-group input:focus {
+  outline: none;
+}
+
+input:focus, input[type]:focus, .uneditable-input:focus {   
+  border-color: #55c57a;
+  box-shadow: 1px 1px 10px 1px #55c57a;
+  outline: 0 none;
+}
+
+.form-label-group>input,
+.form-label-group>label {
+  /* padding: var(--input-padding-y) var(--input-padding-x); */
+}
+
+.form-label-group>label {
+  /* position: absolute;
+  top: 0;
+  left: 0;
+  display: block;
+  width: 100%;
+  margin-bottom: 0; */
+  /* Override default `<label>` margin */
+  /* line-height: 1.5;
+  color: #495057;
+  border: 1px solid transparent;
+  border-radius: .25rem;
+  transition: all .1s ease-in-out; */
+}
+
+/* .form-label-group input::-webkit-input-placeholder {
+  color: transparent;
+}
+
+.form-label-group input:-ms-input-placeholder {
+  color: transparent;
+}
+
+.form-label-group input::-ms-input-placeholder {
+  color: transparent;
+}
+
+.form-label-group input::-moz-placeholder {
+  color: transparent;
+} */
+
+.form-label-group input::placeholder {
+  /* color: transparent; */
+}
+
+.form-label-group input:not(:placeholder-shown) {
+  /* padding-top: calc(var(--input-padding-y) + var(--input-padding-y) * (2 / 3));
+  padding-bottom: calc(var(--input-padding-y) / 3); */
+}
+
+.form-label-group input:not(:placeholder-shown)~label {
+  /* padding-top: calc(var(--input-padding-y) / 3);
+  padding-bottom: calc(var(--input-padding-y) / 3);
+  font-size: 12px;
+  color: #777; */
+}
+
+.form-signin .btn-google {
+  color: white;
+  background-color: #ea4335;
+}
+
+.form-signin .btn-facebook {
+  color: white;
+  background-color: #3b5998;
+}
+
+.errors {
+  z-index: 10;
+}
+
+.alert-error {
+  color: #a94442;
+  background-color: #f2dede;
+  border-color: #ebccd1;
+}
