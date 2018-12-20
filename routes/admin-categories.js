@@ -3,6 +3,8 @@ var router = express.Router();
 var mkdirp = require('mkdirp');
 var fs = require('fs-extra');
 var resizeImg = require('resize-img');
+var auth = require('../config/auth');
+var isAdmin = auth.isAdmin;
 
 // get Category model
 var Category = require('../models/category');
@@ -10,7 +12,7 @@ var Category = require('../models/category');
 /*
 * GET categories index
 */
-router.get('/', function (req, res, next) {
+router.get('/', isAdmin, function (req, res, next) {
   Category.find({}, function (err, categories) {
     if (err) return console.log(err);
     res.render('admin/categories', {
@@ -22,7 +24,7 @@ router.get('/', function (req, res, next) {
 /*
 * GET add category
 */
-router.get('/add-category', function (req, res, next) {
+router.get('/add-category', isAdmin, function (req, res, next) {
 
   var title = "";
   var image = ""
@@ -118,7 +120,7 @@ router.post('/add-category', function (req, res, next) {
 /*
 * GET edit category
 */
-router.get('/edit-category/:id', function (req, res, next) {
+router.get('/edit-category/:id', isAdmin, function (req, res, next) {
 
   Category.findById(req.params.id, function (err, category) {
     if (err)
@@ -193,7 +195,7 @@ router.post('/edit-category/:id', function (req, res, next) {
 /*
 /* GET delete category
 */
-router.get('/delete-category/:id', function (req, res, next) {
+router.get('/delete-category/:id', isAdmin, function (req, res, next) {
   Category.findByIdAndRemove(req.params.id, function (err) {
     if (err) return
     console.log(err);
