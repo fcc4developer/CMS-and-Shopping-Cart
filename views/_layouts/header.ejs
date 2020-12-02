@@ -60,7 +60,9 @@
                 <%= c.title %></a>
               <% }); %>
               <div class="dropdown-divider"></div>
-              <a class="dropdown-item" href="#">Sales -40%</a>
+                <a class="dropdown-item" href="/products/sales">
+                  Sales -40%
+                </a>
             </div>
           </li>
           <% pages.forEach(function(page) { %>
@@ -71,7 +73,12 @@
           </li>
           <% } else if(page.slug == 'sales') { %>
           <li class="nav-item">
-            <a class="nav-link sales" href="<%= page.slug %>">
+            <a class="nav-link sales" href="/sales">
+              <%= page.title %></a>
+          </li>
+          <% } else if(page.slug == 'electronics') { %>
+          <li class="nav-item">
+            <a class="nav-link" href="/electronics">
               <%= page.title %></a>
           </li>
           <% } else { %>
@@ -84,6 +91,7 @@
           <% }); %>
         </ul>
         <ul class="navbar-nav ml-auto">
+          <% if(user && user.admin != 1) { %>
           <li class="nav-item">
             <a href="/cart/checkout" class="checkout"><i class="icon ion-md-cart"></i>(
               <% if(typeof cart != "undefined") { %>
@@ -93,6 +101,7 @@
               <% } %>
               )</a>
           </li>
+          <% } %>
           <% if(user) { %>
           <li class="nav-item register"><a href="/users/logout" class="nav-link">Hi,
               <%= user.username %>&nbsp;&nbsp;(logout)</a></li>
@@ -101,7 +110,7 @@
           <li class="nav-item register"><a href="/users/login" class="nav-link">Log In</a></li>
           <% } %>
           <% if(user && user.admin == 1) { %>
-          <li><a href="/admin/pages">Admin Area</a></li>
+          <li class="nav-item register"><a href="/admin/pages" class="nav-link">Admin Area</a></li>
           <% } %>
 
         </ul>

@@ -18,7 +18,7 @@ var Category = require('../models/category');
 router.get('/', isAdmin, function (req, res, next) {
   var count;
 
-  Product.count(function (err, c) {
+  Product.countDocuments(function (err, c) {
     count = c;
   });
   Product.find({}, function (err, products) {
@@ -37,13 +37,15 @@ router.get('/add-product', isAdmin, function (req, res, next) {
 
   var title = "";
   var desc = "";
-  var price = ""
+  var price = "";
+  var discount = "";
 
   Category.find({}, function (err, categories) {
     res.render('admin/add-product', {
       title: title,
       desc: desc,
       price: price,
+      discount: discount,
       categories: categories
     });
   });
@@ -66,6 +68,7 @@ router.post('/add-product', function (req, res, next) {
   var slug = title.replace(/\s+/g, '-').toLowerCase();
   var desc = req.body.desc;
   var price = req.body.price;
+  var discount = req.body.discount;
   var category = req.body.category;
 
 
@@ -78,6 +81,7 @@ router.post('/add-product', function (req, res, next) {
         title: title,
         desc: desc,
         price: price,
+        discount: discount,
         categories: categories
       });
     });
@@ -89,31 +93,35 @@ router.post('/add-product', function (req, res, next) {
           title: title,
           desc: desc,
           price: price,
+          discount: discount,
           categories: categories
         });
       } else {
         var price2 = parseFloat(price).toFixed(2);
+        var discount2 = parseFloat(discount).toFixed(2);
         var product = new Product({
           title: title,
           slug: slug,
           desc: desc,
           price: price2,
+          discount: discount2,
           category: category,
           image: imageFile
         });
+        console.log(product)
 
         product.save(function (err) {
           if (err) {
             return console.log(err);
           }
 
-          mkdirp('public/product-images/' + product._id, function (err) {
+          mkdirp.sync('public/product-images/' + product._id, function (err) {
             return console.log();
           });
-          mkdirp('public/product-images/' + product._id + '/gallery', function (err) {
+          mkdirp.sync('public/product-images/' + product._id + '/gallery', function (err) {
             return console.log();
           });
-          mkdirp('public/product-images/' + product._id + '/gallery/thumbs', function (err) {
+          mkdirp.sync('public/product-images/' + product._id + '/gallery/thumbs', function (err) {
             return console.log();
           });
 
@@ -161,12 +169,13 @@ router.get('/edit-product/:id', isAdmin, function (req, res, next) {
             console.log(err);
           } else {
             galleryImages = files;
-
+            console.log(product)
             res.render('admin/edit-product', {
               errors: errors,
               title: product.title,
               desc: product.desc,
               price: parseFloat(product.price).toFixed(2),
+              discount: parseFloat(product.discount).toFixed(2),
               categories: categories,
               category: product.category.replace(/\s+/g, '-').toLowerCase(),
               image: product.image,
@@ -186,8 +195,11 @@ router.get('/edit-product/:id', isAdmin, function (req, res, next) {
 * POST edit product
 */
 router.post('/edit-product/:id', function (req, res, next) {
-
-  var imageFile = typeof req.files.image !== 'undefined' ? req.files.image.name : '';
+  if (req.files !== null) {
+    var imageFile = typeof req.files.image !== 'undefined' ? req.files.image.name : '';
+  } else {
+    var imageFile = '';
+  }
 
   req.checkBody('title', 'Title must have a value').notEmpty();
   req.checkBody('desc', 'Descrtiption must have a value').notEmpty();
@@ -198,11 +210,12 @@ router.post('/edit-product/:id', function (req, res, next) {
   var slug = title.replace(/\s+/g, '-').toLowerCase();
   var desc = req.body.desc;
   var price = req.body.price;
+  var discount = req.body.discount;
   var category = req.body.category;
   var pimage = req.body.pimage;
   var id = req.params.id;
 
-  console.log(pimage);
+  // console.log(pimage);
 
   var errors = req.validationErrors();
 
@@ -225,10 +238,12 @@ router.post('/edit-product/:id', function (req, res, next) {
           prod.slug = slug;
           prod.desc = desc;
           prod.price = parseFloat(price).toFixed(2);
+          prod.discount = parseFloat(discount).toFixed(2);
           prod.category = category;
           if (imageFile != '') {
             prod.image = imageFile;
           }
+          console.log(prod)
 
           prod.save(function (err) {
             if (err)

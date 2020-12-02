@@ -1,46 +1,65 @@
 <%- include('../_layouts/admin-header.ejs') %>
 
 <h2 class="page-title">Add a product</h2>
-<a href="/admin/products" class="btn btn-primary">Back to all products</a>
+<div class="btnGroup">
+  <a href="/admin/products" class="btnWhite">Back to all products</a>
+  <!-- <div class="whiteBG"></div> -->
+</div>
 <br><br>
 
-<form action="/admin/products/add-product" method="post" enctype="multipart/form-data">
+<main>
+  <form class="product-form" action="/admin/products/add-product" method="post" enctype="multipart/form-data">
 
-  <div class="form-group">
-    <label for="">Title</label>
-    <input type="text" class="form-control" name="title" value="<%=title %>" placeholder="Title">
-  </div>
+    <div class="form-group">
+      <label for="">Title</label>
+      <input type="text" class="form-control" name="title" value="<%=title %>" placeholder="Title">
+    </div>
 
-  <div class="form-group">
-    <label for="">Description</label>
-    <textarea class="form-control" name="desc" cols="30" rows="10" placeholder="Description"><%= desc %></textarea>
-  </div>
+    <div class="form-group">
+      <label for="">Description</label>
+      <textarea class="form-control" name="desc" cols="30" rows="10" placeholder="Description"><%= desc %></textarea>
+    </div>
 
-  <div class="form-group">
-    <label for="">Category</label>
-    <select name="category" class="form-control">
-      <% categories.forEach(function(category) { %>
-      <option value="<%= category.slug %>">
-        <%= category.title %>
-      </option>
-      <% }); %>
-    </select>
-  </div>
+    <div class="form-group">
+      <label for="">Category</label>
+      <select name="category" class="form-control">
+        <% categories.forEach(function(category) { %>
+        <option value="<%= category.slug %>">
+          <%= category.title %>
+        </option>
+        <% }); %>
+      </select>
+    </div>
 
-  <div class="form-group">
-    <label for="">Price</label>
-    <input type="text" class="form-control" name="price" value="<%=price %>" placeholder="Price">
-  </div>
+    <div class="form-group">
+      <label for="">Price</label>
+      <input type="text" class="form-control" name="price" value="<%=price %>" placeholder="Price">
+    </div>
 
-  <div class="form-group">
-    <label for="">Image</label>
-    <input type="file" class="form-control" name="image" id="img">
-    <img src="#" id="imgPreview" alt="">
-  </div>
+    <div class="form-group">
+      <label for="">Discount</label>
+      <select name="discount" class="form-control">
+        <option value="0">
+          No Discount
+        </option>
+        <option value="20">
+          20%
+        </option>
+        <option value="40">
+          40%
+        </option>
+      </select>
+    </div>
 
-  <button class="btn btn-default">Submit</button>
-</form>
+    <div class="form-group">
+      <label for="">Image</label>
+      <input type="file" class="form-control" name="image" id="img">
+      <img src="#" id="imgPreview" alt="">
+    </div>
 
+    <button class="btn btn-default">Submit</button>
+  </form>
+</main>
 <script>
 
   function readURL(input) {

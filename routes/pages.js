@@ -5,17 +5,19 @@ var router = express.Router();
 var Page = require('../models/page');
 
 /*
- * GET / 
+ * GET /
 */
 router.get('/', function (req, res, next) {
 
   Page.findOne({ slug: 'home' }, function (err, page) {
+    // console.log(page);
     if (err)
       console.log(err);
 
     res.render('index', {
+
       title: page.title,
-      content: page.content,
+      content: page.content
     });
   });
 });
@@ -35,7 +37,7 @@ router.get('/:slug', function (req, res, next) {
     if (!page) {
       res.redirect('/');
     } else {
-      res.render('index', {
+      res.render(slug + '.ejs', {
         title: page.title,
         content: page.content,
         slug: page.slug

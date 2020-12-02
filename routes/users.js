@@ -7,7 +7,7 @@ var bcrypt = require('bcryptjs');
 var User = require('../models/user');
 
 /*
- * GET register 
+ * GET register
 */
 router.get('/register', function (req, res, next) {
 
@@ -18,7 +18,7 @@ router.get('/register', function (req, res, next) {
 });
 
 /*
- * POST register 
+ * POST register
 */
 router.post('/register', function (req, res, next) {
 
@@ -68,7 +68,7 @@ router.post('/register', function (req, res, next) {
                 console.log(err);
               } else {
                 req.flash('success', 'You are now register!');
-                res.redirect('users/login')
+                res.redirect('/login')
               }
             });
           });
@@ -81,7 +81,7 @@ router.post('/register', function (req, res, next) {
 });
 
 /*
- * GET login 
+ * GET login
 */
 router.get('/login', function (req, res, next) {
 
@@ -94,7 +94,7 @@ router.get('/login', function (req, res, next) {
 });
 
 /*
- * POST login 
+ * POST login
 */
 router.post('/login', function (req, res, next) {
 
@@ -107,7 +107,7 @@ router.post('/login', function (req, res, next) {
 });
 
 /*
- * GET logout 
+ * GET logout
 */
 router.get('/logout', function (req, res, next) {
 

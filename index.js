@@ -19,7 +19,7 @@ var adminCategories = require('./routes/admin-categories');
 var adminProducts = require('./routes/admin-products');
 
 // connect to db
-mongoose.connect(config.database);
+mongoose.connect(config.database, {useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false});
 var db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error: '));
 db.once('open', function () {
@@ -138,6 +138,11 @@ app.get('*', function (req, res, next) {
   next();
 });
 
+app.use(function(req, res, next) {
+  res.header('Cache-Control', 'no-cache, private, no-store, must-revalidate, max-stale=0, post-check=0, pre-check=0');
+  next();
+});
+
 // use routes
 app.use('/admin/products', adminProducts);
 app.use('/admin/categories', adminCategories);
@@ -146,7 +151,6 @@ app.use('/users', users);
 app.use('/cart', cart);
 app.use('/products', products);
 app.use('/', pages);
-
 
 // start the server
 var port = 3000;

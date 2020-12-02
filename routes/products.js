@@ -11,7 +11,7 @@ var Product = require('../models/product');
 var Category = require('../models/category');
 
 /*
- * GET all products 
+ * GET all products
 */
 router.get('/', function (req, res, next) {
   // router.get('/', isUser, function (req, res, next) {  -- for access control --
@@ -31,16 +31,36 @@ router.get('/', function (req, res, next) {
 
 });
 
+router.get('/sales', function (req, res, next) {
+  // router.get('/', isUser, function (req, res, next) {  -- for access control --
+
+  // Category.find({}, function (err, categories) {
+    Product.find({discount: 40}, function (err, products) {
+      console.log(products)
+      if (err)
+        console.log(err);
+
+      res.render('sales-products', {
+        title: 'Sales products',
+        products: products,
+        // categories: categories
+      });
+    });
+  // })
+
+});
+
 
 /*
 * GET products by category
 */
 router.get('/:category', function (req, res, next) {
-
+  console.log(req.params)
   var categorySlug = req.params.category;
 
   Category.findOne({ slug: categorySlug }, function (err, c) {
     Product.find({ category: categorySlug }, function (err, products) {
+      console.log(products)
       if (err)
         console.log(err);
 
@@ -61,6 +81,7 @@ router.get('/:category/:product', function (req, res, next) {
 
   var galleryImages = null;
   var loggedIn = (req.isAuthenticated()) ? true : false;
+  var isAdmin = req.isAuthenticated() && res.locals.user.admin == 1
 
   Product.findOne({ slug: req.params.product }, function (err, product) {
     if (err) {
@@ -77,7 +98,8 @@ router.get('/:category/:product', function (req, res, next) {
             title: product.title,
             p: product,
             galleryImages: galleryImages,
-            loggedIn: loggedIn
+            loggedIn: loggedIn,
+            isAdmin: isAdmin
           });
         }
       });

@@ -5,7 +5,7 @@ var router = express.Router();
 var Product = require('../models/product');
 
 /*
- * GET add product to cart 
+ * GET add product to cart
 */
 router.get('/add/:product', function (req, res, next) {
 
@@ -52,7 +52,7 @@ router.get('/add/:product', function (req, res, next) {
 
 
 /*
- * GET checkout page 
+ * GET checkout page
 */
 router.get('/checkout', function (req, res, next) {
 
@@ -70,7 +70,7 @@ router.get('/checkout', function (req, res, next) {
 
 
 /*
- * GET update checkout page 
+ * GET update checkout page
 */
 router.get('/update/:product', function (req, res, next) {
   var slug = req.params.product;
@@ -85,7 +85,11 @@ router.get('/update/:product', function (req, res, next) {
           break;
         case "remove":
           cart[i].qty--;
-          if (cart[i].qty < 1) cart.splice(i, 1);
+          if (cart[i].qty < 1) {
+            cart.splice(i, 1)
+            delete req.session.cart
+            break;
+          }
           break;
         case "clear":
           cart.splice(i, 1);
@@ -100,13 +104,13 @@ router.get('/update/:product', function (req, res, next) {
 
   }
 
-  // req.flash('success', 'Cart updated!');
+  req.flash('success', 'Cart updated!');
   res.redirect('/cart/checkout');
 
 });
 
 /*
- * GET clear cart 
+ * GET clear cart
 */
 router.get('/clear', function (req, res, next) {
 

@@ -85,21 +85,20 @@ router.post('/add-category', function (req, res, next) {
 
               req.app.locals.categories = categories;
 
-              mkdirp('public/category-images/' + category.slug, function (err) {
+              mkdirp.sync('public/category-images/' + category.slug, function (err) {
                 return console.log();
               });
-              mkdirp('public/category-images/' + category.slug + '/gallery', function (err) {
+              mkdirp.sync('public/category-images/' + category.slug + '/gallery', function (err) {
                 return console.log();
               });
-              mkdirp('public/category-images/' + category.slug + '/gallery/thumbs', function (err) {
+              mkdirp.sync('public/category-images/' + category.slug + '/gallery/thumbs', function (err) {
                 return console.log();
               });
 
               if (categoryFile != '') {
+                // console.log(categoryFile)
                 var categoryImage = req.files.image;
-                var path = 'public/category-images/' + category.slug + '/' + categoryImage;
-                console.log(categoryImage)
-                console.log(path)
+                var path = 'public/category-images/' + category.slug + '/' + categoryFile;
 
                 categoryImage.mv(path, function (err) {
                   return console.log(err);

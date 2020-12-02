@@ -9,6 +9,9 @@ var CategorySchema = mongoose.Schema({
   },
   slug: {
     type: String
+  },
+  image: {
+    type: String
   }
 
 });

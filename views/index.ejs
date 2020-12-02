@@ -56,31 +56,22 @@
     </div>
   </div>
 </div>
+<div class="container">
+  <div class="row">
+    <% categories.forEach(function(c) { %>
+      <div class="col-sm-6 col-md-4 col-lg-4 col-xl-2">
+        <div class="category-item">
+          <div class="shot-item">
+            <img class="" src="/category-images/<%= c.slug %>/<%= c.image %>">
+            <div class="overlay">
+                <a class="link" href="/products/<%= c.slug %>"><%= c.title %></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    <% }); %>
+  </div>
 
-<div class="row">
-  <% categories.forEach(function(c) { %>
-  <a class="col-lg-4 col-sm-6 about" href="/products/<%= c.slug %>">
-    <%= c.title %>
-  </a>
-  <% }); %>
-</div>
-
-<div class="row">
-  <div class="col-lg-4 col-sm-6 categories">
-    <div class="thumbnail">
-      <a href="/products/watches"><img src="/images/pexels-photo-125779.jpeg"></a>
-    </div>
-  </div>
-  <div class="col-lg-4 col-sm-6 categories">
-    <div class="thumbnail">
-      <a href="/products/jewellery"><img src="/images/jewellery-cat.jpeg"></a>
-    </div>
-  </div>
-  <div class="col-lg-4 col-sm-6 categories">
-    <div class="thumbnail">
-      <a href="/products/glasses"><img src="/images/pexels-photo-46710.jpeg"></a>
-    </div>
-  </div>
 </div>
 
 <div class="top">

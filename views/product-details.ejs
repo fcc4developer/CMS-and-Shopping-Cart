@@ -6,20 +6,23 @@
 </div>
 <div class="row top-row">
   <div class="col-xs-12 col-md-5">
-    <img src="/product-images/<%= p.id %>/<%= p.image %>" alt="" class="spi">
+    <img src="/product-images/<%= p.id %>/<%= p.image %>" alt="" class="product-details">
     <br>
   </div>
   <div class="col-xs-12 col-md-6">
-    <p class="spi-desc">
+    <p class="product-desc">
       <%= p.desc %>
     </p>
     <p class="price">Price: $
       <%= parseFloat(p.price).toFixed(2) %>
     </p>
-    <% if(loggedIn) { %>
+    <% if(loggedIn && isAdmin != true) { %>
     <p><a href="/cart/add/<%= p.slug %>" class="vd">Add to cart &raquo;</a></p>
+    <% } else if (loggedIn && isAdmin == true) { %>
+    <p></p>
     <% } else { %>
-    <p>You must be logged in to purchase items.</p>
+      <p>You must be logged in to purchase items.</p>
+
     <% }; %>
   </div>
   <div class="col-xs-12">

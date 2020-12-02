@@ -1,7 +1,7 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:400,700');
+
 /* -------------------------------------------------- */
 /* BASIC SETUP ====================================== */
-
-
 * {
   margin: 0;
   padding: 0;
@@ -17,13 +17,13 @@ html,
 body {
   background-color: #fff;
   color: #555;
-  font-family: 'Source Sans Pro', sans-serif;
+  font-family: 'Open Sans', sans-serif;
   font-weight: 300;
 }
 
 .top-row {
   max-width: 1140px;
-  margin: 10px auto;
+  margin: 15px auto;
   padding-left: 20px;
 }
 
@@ -35,58 +35,116 @@ body {
 h1.page-header {
   color: #fff;
   background-color: #55c57a;
-  width: 25%;
-  font-family: 'Raleway', sans-serif; 
+  width: 100%;
+  font-family: 'Raleway', sans-serif;
+  font-weight: 600;
   border: 1px solid #55c57a;
   border-radius: 3px;
-  text-align: center;
-  padding: 10px;
-  font-size: 16px;
-  margin-top: 10px;
-}
-
-h4 {
-  margin-bottom: 25px;
-  /* text-align: center; */
+  text-align: left;
+  text-transform: uppercase;
+  padding: 20px;
+  font-size: 18px;
 }
 
 h6, h2 {
-  font-family: 'Raleway', sans-serif; 
+  font-family: 'Raleway', sans-serif;
   font-weight: 600;
+  margin-top: 20px;
 }
 
-a.about {
-  text-decoration: none;
-  font-size: 25px;
-  color: #555;
-  text-transform: uppercase;
-  letter-spacing: .5px;
+table.table tr {
   text-align: center;
 }
 
-a.about:hover {
+table.table th{
+  background: #55c57a;
+  color: #fff;
+}
+
+.table.alignmiddle td {
+  vertical-align: middle;
+}
+
+ a i.icon {
   color: #55c57a;
+  font-size: 25px;
 }
 
-.about {
-  font-size: 110%;
-  padding-top: 80px;
-  margin-top: 80px;
+a i.icon:hover {
+  color: #17a547;
 }
 
-.about-txt {
-  margin-bottom: 60px;
-  padding-bottom: 60px;
+.btn.btn-success {
+  background-color: #55c57a;
+  border: 1.5px solid #55c57a;
 }
 
-.categories {
-  padding: 80px;
-  margin-bottom: 80px;
+.btn.btn-success:hover {
+  background-color: #8ed1a4;
+  border: 1.5px solid #8ed1a4;
 }
 
 img.pimage {
   width: 180px;
 }
+
+.alert {
+  margin-top: 40px;
+}
+
+/* -------------------------------------------------- */
+/* ABOUT ====================================== */
+
+.about-txt {
+  padding: 10px;
+}
+
+/* -------------------------------------------------- */
+/* CATEGORIES ====================================== */
+.category-item .shot-item {
+  margin: 0px;
+}
+
+.shot-item {
+  border-radius: 5px;
+  background: #fff;
+  position: relative;
+}
+
+.shot-item img {
+  width: 60%;
+}
+
+.shot-item .overlay {
+  position: absolute;
+  width: 120px;
+  height: 120px;
+  left: -5%;
+  top: 0;
+  border-radius: 5px;
+  background: #85858599;
+  opacity: 0;
+  -webkit-transition: all 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out;
+}
+
+.overlay .link {
+  position: absolute;
+  left: 20%;
+  top: 40%;
+  color: #fff;
+  font-size: 110%;
+  font-weight: 600;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+.shot-item:hover .overlay {
+  opacity: 1;
+}
+
+/* -------------------------------------------------- */
+/* TOP RATED & TOP SALES ====================================== */
 
 .vd-top {
   float: right;
@@ -99,7 +157,6 @@ img.top-rated {
 }
 
 .top {
-  /* margin: 10px auto; */
   padding: 100px;
   background-color: #f0eeee;
 }
@@ -111,10 +168,10 @@ a.top-link {
   border-bottom: 1px solid transparent;
   cursor: pointer;
 }
-
+/*
 .jumbotron {
   margin-top: 40px;
-}
+} */
 
 a.pa {
   display: inline-block;
@@ -125,24 +182,23 @@ a.pa {
   margin: 20px 0;
 }
 
-img.spi {
+/* -------------------------------------------------- */
+/* PRODUCT DETAILS & EDIT PRODUCT====================================== */
+
+img.product-details {
   width: 60%;
   padding: 10px;
 }
 
-p.spi-desc {
-  margin-bottom: 20px;
-}
-
-.alert {
-  margin-top: 40px;
+p.product-desc {
+  padding: 10px 0;
 }
 
 .price {
   font-size: 120%;
   font-weight: 700;
   border-top: 1px solid #555;
-  padding-top: 10px;;
+  padding-top: 10px;
 }
 
 ul.gallery li {
@@ -150,6 +206,9 @@ ul.gallery li {
   margin-bottom: 20px;
   list-style: none;
 }
+
+/* -------------------------------------------------- */
+/* CAROUSEL & NAVBAR ====================================== */
 
 .carousel {
   padding: 30px;
@@ -176,7 +235,6 @@ nav {
   transition: all 0.2s;
 }
 
-
 .nav-link:hover {
   border-bottom: 1px solid #55c57a;
 }
@@ -195,12 +253,12 @@ a.dropdown-toggle:hover {
   background-color: #55c57a;
   outline-color: #55c57a;
   border: 1px solid #55c57a;
-  border-radius: 1.5px;
+  border-radius: 2px;
   translate: all .2s;
 }
 
 .nav-link.sales:hover {
-  transform: scale(1.2) skewY(-6deg);
+  transform: scale(1.5);
 }
 
 .nav-item.register,
@@ -211,7 +269,6 @@ a.dropdown-toggle:hover {
 a.checkout {
   text-decoration: none;
   color: #55c57a;
-  /* margin-right: 10px; */
 }
 
 .checkout i.icon {
@@ -253,7 +310,8 @@ input.form-control.search-input {
 
 .search {
   background-color: #f4f2f2;
-  }
+}
+
 .search-input {
   border: none;
   background-color: #f4f2f2;
@@ -268,19 +326,22 @@ input.form-control.search-input {
  }
 
 .search-input::-webkit-input-placeholder {
-  color: #ccc; 
+  color: #ccc;
   font-size: 14px;
 }
 
 .search-input:focus {
-  background-color: #f0eeee; 
+  background-color: #f0eeee;
 }
 
 .search-icon {
   height: 20px;
   width: 20px;
-  fill: #55c57a; 
+  fill: #55c57a;
 }
+
+/* -------------------------------------------------- */
+/* ALL PRODUCTS, CATEGORY PRODUCTS & SALES PRODUCTS ====================================== */
 
 div.product {
   background-color: rgba(255, 255, 255, 0.8);
@@ -293,6 +354,7 @@ div.product {
   transition: all .2s;
   outline-offset: 10px;
 }
+
 div.product-pimage {
   padding: 40px;
 }
@@ -309,25 +371,27 @@ div.product p {
 .vd:link, .vd:visited {
   font-size: 16px;
   color: #55c57a;
-  /* float: right; */
   text-decoration: none;
   border: 1px solid transparent;
   border-radius: 3px;
   padding: 8px;
-  transition: all .2s; 
+  transition: all .2s;
 }
 
 .vd:hover {
   background-color: #55c57a;
   color: #fff;
   box-shadow: 0 16px 32px rgba(0, 0, 0, 0.15);
-  transform: translateY(-2px); 
+  transform: translateY(-2px);
 }
 
 .vd:active {
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
-  transform: translateY(0); 
+  transform: translateY(0);
 }
+
+/* -------------------------------------------------- */
+/* STORY ====================================== */
 
 img {
   width: 100%;
@@ -349,7 +413,7 @@ img.img-story {
   background-color: rgba(255, 255, 255, 0.6);
   border-radius: 3px;
   padding: 50px;
-  text-align: center; 
+  text-align: center;
 }
 
 .story-heading {
@@ -357,40 +421,11 @@ img.img-story {
   margin-top: 20px;
 }
 
+/* -------------------------------------------------- */
+/* CHECKOUT ====================================== */
+
 .check-img {
   width: 100px;
-}
-
-table.table tr {
-  text-align: center;
-}
-
-table.table th{
-  background: #55c57a;
-  color: #fff;
-}
-
-.table.alignmiddle td {
-  vertical-align: middle;
-}
-
- a i.icon {
-  color: #55c57a;
-  font-size: 25px;
-}
-
-a i.icon:hover {
-  color: #17a547;
-}
-
-.btn.btn-success {
-  background-color: #55c57a;
-  border: 1.5px solid #55c57a;
-}
-
-.btn.btn-success:hover {
-  background-color: #17a547;
-  border: 1.5px solid #17a547;
 }
 
 .ajaxbg {
@@ -411,7 +446,6 @@ a i.icon:hover {
   position: absolute;
   left: 35%;
   top: 35%;
-  /* transform: translate(-50%, -50%); */
   text-align: center;
 }
 
@@ -419,6 +453,9 @@ a i.icon:hover {
   width: 20px;
   height: 20px;
 }
+
+/* -------------------------------------------------- */
+/* FOOTER ====================================== */
 
 footer {
   background-color: #333;
@@ -455,9 +492,19 @@ footer {
   transition: color .2s;
 }
 
-.footer-nav li a:hover,
-.footer-nav li a:active {
-  color: #55c57a;
+.footer-nav li.linkedin a:hover,
+.footer-nav li.linkedin a:active {
+  color: #0e76a8;
+}
+
+.footer-nav li.instagram a:hover,
+.footer-nav li.instagram a:active {
+  color: #8a3ab9;
+}
+
+.footer-nav li.facebook a:hover,
+.footer-nav li.facebook a:active {
+  color: #4d73c5
 }
 
 footer p {
@@ -467,12 +514,8 @@ footer p {
   margin-top: 30px;
 }
 
-/* Registration Form */
-
-/* :root {
-  --input-padding-x: 1.5rem;
-  --input-padding-y: .75rem;
-} */
+/* -------------------------------------------------- */
+/* REGISTRATION FORM ====================================== */
 
 .card-signin {
   border: 1px solid transparent;
@@ -489,7 +532,6 @@ footer p {
 
 .card-signin .card-img-left {
   width: 45%;
-  /* Link to your background image using in the property below! */
   background: scroll center url('/images/clock-hours-minutes-9352.jpg');
   background-size: cover;
   background-color: #55c57a;
@@ -520,7 +562,6 @@ a.small {
 }
 
 .form-label-group {
-  /* position: relative; */
   margin-bottom: 1rem;
 }
 
@@ -532,62 +573,10 @@ a.small {
   outline: none;
 }
 
-input:focus, input[type]:focus, .uneditable-input:focus {   
+input:focus, input[type]:focus, .uneditable-input:focus {
   border-color: #55c57a;
-  box-shadow: 1px 1px 10px 1px #55c57a;
-  outline: 0 none;
-}
-
-.form-label-group>input,
-.form-label-group>label {
-  /* padding: var(--input-padding-y) var(--input-padding-x); */
-}
-
-.form-label-group>label {
-  /* position: absolute;
-  top: 0;
-  left: 0;
-  display: block;
-  width: 100%;
-  margin-bottom: 0; */
-  /* Override default `<label>` margin */
-  /* line-height: 1.5;
-  color: #495057;
-  border: 1px solid transparent;
-  border-radius: .25rem;
-  transition: all .1s ease-in-out; */
-}
-
-/* .form-label-group input::-webkit-input-placeholder {
-  color: transparent;
-}
-
-.form-label-group input:-ms-input-placeholder {
-  color: transparent;
-}
-
-.form-label-group input::-ms-input-placeholder {
-  color: transparent;
-}
-
-.form-label-group input::-moz-placeholder {
-  color: transparent;
-} */
-
-.form-label-group input::placeholder {
-  /* color: transparent; */
-}
-
-.form-label-group input:not(:placeholder-shown) {
-  /* padding-top: calc(var(--input-padding-y) + var(--input-padding-y) * (2 / 3));
-  padding-bottom: calc(var(--input-padding-y) / 3); */
-}
-
-.form-label-group input:not(:placeholder-shown)~label {
-  /* padding-top: calc(var(--input-padding-y) / 3);
-  padding-bottom: calc(var(--input-padding-y) / 3);
-  font-size: 12px;
-  color: #777; */
+  outline: none;
+  box-shadow: none
 }
 
 .form-signin .btn-google {
